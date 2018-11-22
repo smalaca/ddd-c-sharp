@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using DDD.Rental.Domain.Dto;
+﻿using DDD.Rental.Domain.Dto;
 
 namespace DDD.Rental.Domain
 {

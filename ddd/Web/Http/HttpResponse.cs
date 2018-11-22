@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using DDD.Rental.Api.Rest;
-
-namespace DDD.Rental.Web.Http
+﻿namespace DDD.Web.Http
 {
     
     class HttpResponse

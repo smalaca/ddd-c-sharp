@@ -1,6 +1,6 @@
 ﻿using DDD.Rental.Domain.Dto;
 
-namespace DDD.Rental.Semantic
+namespace DDD.Semantic
 {
     public interface SemanticsFacade
     {

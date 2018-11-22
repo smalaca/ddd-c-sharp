@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDD.Rental.Api.Rest.Domain
+namespace DDD.Api.Rest.Domain
 {
     public class RestCallResponse
     {

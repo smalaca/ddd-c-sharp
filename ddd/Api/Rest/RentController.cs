@@ -1,11 +1,11 @@
-﻿using DDD.Rental.Api.Rest.Domain;
+﻿using DDD.Api.Rest.Domain;
 using DDD.Rental.Domain;
 using DDD.Rental.Domain.Dto;
-using DDD.Rental.Semantic;
-using DDD.Rental.Web.Http;
+using DDD.Semantic;
+using DDD.Web.Http;
 using System;
 
-namespace DDD.Rental.Api.Rest
+namespace DDD.Api.Rest
 {
     class RentController
     {

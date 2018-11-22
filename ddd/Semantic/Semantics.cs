@@ -1,4 +1,4 @@
-﻿namespace DDD.Rental.Semantic
+﻿namespace DDD.Semantic
 {
     public interface Semantics
     {
