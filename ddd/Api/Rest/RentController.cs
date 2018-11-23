@@ -18,9 +18,9 @@ namespace DDD.Api.Rest
             this.semanticsFacade = semanticsFacade;
         }
 
-        public HttpResponse Rent(long tenantId, long rentalSpaceId, DateTime fromDate, DateTime toDate)
+        public HttpResponse Rent(long offerId)
         {
-            RentRequestDto rentalRequestDto = new RentRequestDto(tenantId, rentalSpaceId, fromDate, toDate);
+            RentRequestDto rentalRequestDto = new RentRequestDto(offerId);
 
             Semantics semantics = semanticsFacade.Verify(rentalRequestDto);
 

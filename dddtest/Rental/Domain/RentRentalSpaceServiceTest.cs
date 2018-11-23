@@ -15,18 +15,15 @@ namespace DDDTest.Rental.Domain
             var rentalRepository = new Mock<RentRepository>();
 
             //GivenOffer
-            var offer = new OfferFactory().create(13, 69, DateTime.Now, DateTime.Now.AddDays(3));
-            /**
-             * var offer = new Offer(
-                new TenantId(13),
-                new RentalSpaceId(69),
-                new Period(DateTime.Now, DateTime.Now.AddDays(3))
-            ); */
+            Offer offer = new OfferFactory().create(13, 69, 100, DateTime.Now, DateTime.Now.AddDays(3));
+            
             //GivenOfferRepository
             var offerRepository = new Mock<OfferRepository>();
             offerRepository.Setup(repo => repo.FindBy(offerId)).Returns(offer);
 
-            RentRentalSpaceService service = new RentRentalSpaceService(rentalRepository.Object)
+            RentRentalSpaceService service = new RentRentalSpaceService(
+                rentalRepository.Object,
+                offerRepository.Object);
             service.Process(new RentRequestDto(offerId));
 
             //ThenOfferAccepted
