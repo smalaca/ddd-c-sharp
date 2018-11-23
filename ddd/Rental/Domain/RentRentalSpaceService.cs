@@ -13,6 +13,9 @@ namespace DDD.Rental.Domain
 
         public void Process(RentRequestDto rentalRequestDto)
         {
+            //Offer offer = offerRepository.findBy(offerId);
+            //Rent rent = offer.accept();
+
             Rent rent = new RentFactory().createFrom(rentalRequestDto);
             rentRepository.Add(rent);
         }

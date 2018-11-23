@@ -11,28 +11,28 @@ namespace DDDTest.Rental.Domain
         [Test]
         public void ShouldRentRentalSpace()
         {
-            RentRequestDto rentalRequestDto = aRentRequestDto();
+            long offerId = 42;
             var rentalRepository = new Mock<RentRepository>();
 
-            new RentRentalSpaceService(rentalRepository.Object).Process(rentalRequestDto);
+            //GivenOffer
+            var offer = new OfferFactory().create(13, 69, DateTime.Now, DateTime.Now.AddDays(3));
+            /**
+             * var offer = new Offer(
+                new TenantId(13),
+                new RentalSpaceId(69),
+                new Period(DateTime.Now, DateTime.Now.AddDays(3))
+            ); */
+            //GivenOfferRepository
+            var offerRepository = new Mock<OfferRepository>();
+            offerRepository.Setup(repo => repo.FindBy(offerId)).Returns(offer);
 
-            thenRentalSpaceIsRent(rentalRequestDto, rentalRepository);
-        }
+            RentRentalSpaceService service = new RentRentalSpaceService(rentalRepository.Object)
+            service.Process(new RentRequestDto(offerId));
 
-        private void thenRentalSpaceIsRent(RentRequestDto rentalRequestDto, Mock<RentRepository> rentalRepository)
-        {
+            //ThenOfferAccepted
             rentalRepository.Verify(
-                repository => repository.Add(It.Is<Rent>(rent => rent.AsDto().SameAs(rentalRequestDto))),
+                repository => repository.Add(It.Is<Rent>(rent => rent.sameAs(offer.accept()))),
                 Times.Once);
-        }
-
-        private RentRequestDto aRentRequestDto()
-        {
-            long tenantId = 13;
-            long rentalSpaceId = 69;
-            DateTime fromDate = DateTime.Now;
-            DateTime toDate = fromDate.AddDays(3);
-            return new RentRequestDto(tenantId, rentalSpaceId, fromDate, toDate);
         }
     }
 }

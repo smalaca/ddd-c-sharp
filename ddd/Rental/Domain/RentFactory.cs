@@ -7,9 +7,10 @@ namespace DDD.Rental.Domain
     {
         internal Rent createFrom(RentRequestDto rentalRequestDto)
         {
-            Period period = new Period(rentalRequestDto.fromDate, rentalRequestDto.toDate);
+            return null;
+            //Period period = new Period(rentalRequestDto.fromDate, rentalRequestDto.toDate);
 
-            return new Rent(rentalRequestDto.tenantId, rentalRequestDto.rentalSpaceId, period);
+            //return new Rent(rentalRequestDto.tenantId, rentalRequestDto.rentalSpaceId, period);
         }
     }
 }

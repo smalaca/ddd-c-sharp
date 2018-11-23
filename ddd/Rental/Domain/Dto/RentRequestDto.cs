@@ -6,25 +6,11 @@ namespace DDD.Rental.Domain.Dto
 {
     public class RentRequestDto
     {
-        public readonly long tenantId;
-        public readonly long rentalSpaceId;
-        public readonly DateTime fromDate;
-        public readonly DateTime toDate;
+        public readonly long offerId;
 
-        public RentRequestDto(long tenantId, long rentalSpaceId, DateTime fromDate, DateTime toDate)
+        public RentRequestDto(long offerId)
         {
-            this.tenantId = tenantId;
-            this.rentalSpaceId = rentalSpaceId;
-            this.fromDate = fromDate;
-            this.toDate = toDate;
-        }
-
-        public bool SameAs(RentRequestDto rentalRequestDto)
-        {
-            return tenantId == rentalRequestDto.tenantId &&
-                rentalSpaceId == rentalRequestDto.rentalSpaceId &&
-                fromDate == rentalRequestDto.fromDate &&
-                toDate == rentalRequestDto.toDate;
+            this.offerId = offerId;
         }
     }
 }

@@ -17,10 +17,5 @@ namespace DDD.Rental.Domain
             this.rentalSpaceId = rentalSpaceId;
             this.period = period;
         }
-
-        public RentRequestDto AsDto()
-        {
-            return new RentRequestDto(tenantId, rentalSpaceId, period.From, period.To);
-        }
     }
 }
